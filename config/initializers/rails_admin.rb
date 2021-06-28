@@ -23,7 +23,17 @@ RailsAdmin.config do |config|
   end
 end
 
-
+RailsAdmin.config do |config|
+  config.model Address do
+    edit do
+      field :latitude, :address do
+        longitude_field :longitude
+        google_api_key 
+      end
+    end
+  end
+end
+   
 # RailsAdmin.config do |config|
 #     config.authenticate_with do
 #       warden.authenticate! scope: :user

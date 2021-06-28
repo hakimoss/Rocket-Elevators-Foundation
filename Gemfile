@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem "figaro"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -74,5 +74,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.2'
 
 gem 'rails_admin', github: 'sferik/rails_admin'
-
-gem 'pg', '~> 0.18.4'
+gem 'rails_admin_google_map'
+#gem 'pg', '~> 0.18.4'
