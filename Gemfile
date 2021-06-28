@@ -76,3 +76,5 @@ gem 'devise', '~> 4.2'
 gem 'rails_admin', github: 'sferik/rails_admin'
 
 gem 'pg', '~> 0.18.4'
+
+gem 'figaro'
