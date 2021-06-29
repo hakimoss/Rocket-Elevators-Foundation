@@ -23,10 +23,14 @@ RailsAdmin.config do |config|
   end
 end
 
-
 # RailsAdmin.config do |config|
-#     config.authenticate_with do
-#       warden.authenticate! scope: :user
+#   config.create_customer.new do |controller|
+#     Lead.each.all do |l|
+#     if Customer.new.email_of_the_company_contact == l.email
+#       client = Dropbox::API::Client.new("zq-PMuGwkRcAAAAAAAAAAYG3Sb4cd65pVGLn4aEBAbGK9D57Vpxnz0QXrM-JAY2o")
+#       client.upload l.file.active_storage_blobs
+#       destroy_l.file
+#       end
 #     end
-#     config.current_user_method(&:current_user)
 #   end
+# end
