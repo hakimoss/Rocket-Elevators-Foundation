@@ -80,3 +80,5 @@ gem 'pg', '~> 0.18.4'
 gem 'figaro'
 
 gem "dropbox_api"
+
+gem 'sendgrid-ruby'

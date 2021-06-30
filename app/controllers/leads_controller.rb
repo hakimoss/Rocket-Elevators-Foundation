@@ -27,6 +27,7 @@ class LeadsController < ApplicationController
       if @lead.save
         format.html { redirect_to index_url, notice: "Lead was successfully created." }
         format.json { render :show, status: :created, location: @lead }
+        UserNotifierMailer.send_lead_email(@lead).deliver
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @lead.errors, status: :unprocessable_entity }
