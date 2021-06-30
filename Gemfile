@@ -75,10 +75,14 @@ gem 'devise', '~> 4.2'
 
 gem 'rails_admin', github: 'sferik/rails_admin'
 
-gem 'pg', '~> 0.18.4'
-
+# gem 'pg', '~> 0.18.4'
 gem 'figaro'
+
+gem "slack-notifier"
+
+gem 'twilio-ruby', '~> 5.55.0'
 
 gem "dropbox_api"
 
 gem 'sendgrid-ruby'
+
