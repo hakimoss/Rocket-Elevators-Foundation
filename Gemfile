@@ -83,3 +83,5 @@ gem "slack-notifier"
 gem 'sendgrid-ruby'
 
 gem 'twilio-ruby', '~> 5.55.0'
+
+gem 'ibm_watson'
