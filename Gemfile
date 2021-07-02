@@ -87,3 +87,5 @@ gem "dropbox_api"
 gem 'sendgrid-ruby'
 
 gem 'zendesk_api'
+
+gem 'ibm_watson'
