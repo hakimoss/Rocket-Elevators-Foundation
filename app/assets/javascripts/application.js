@@ -18,5 +18,4 @@
 //= require_tree ./channels
 //= require_tree ./view
 //= require_tree ./plugins
-
-
+//= require gmaps/google

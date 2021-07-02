@@ -1,69 +1,36 @@
 
-
-# RailsAdmin.config do |config|
-#   config.authorize_with do 
-#     if !current_user
-#       config.authenticate_with do
-#         warden.authenticate! scope: :user
-#       end
-#     config.current_user_method(&:current_user)
-#     end
-#     if current_user && current_user.is_employee?(current_user)
-#       true
-#     else
-#       redirect_to main_app.root_path 
-#     end
-#   end
-# end
-
 RailsAdmin.config do |config|
-  
-  include IBMWatson
-  config.authorize_with do |controller|
-    require "json"
-    require "ibm_watson/authenticators"
-    require "ibm_watson/text_to_speech_v1"
-    
-    # If using IAM
-    authenticator = IBMWatson::Authenticators::IamAuthenticator.new(
-      apikey: "i-oRFSUWBN8e8TKfR1mtQArCwgUh3LZes5UzHKBBZ70Q"
-    )
-    
-    # If you have username & password in your credentials use:
-    # authenticator = IBMWatson::Authenticators::BasicAuthenticator.new(
-    #   username: "{username}",
-    #   password: "{password}"
-    # )
-    
-    # If you have username & password in your credentials use:
-    text_to_speech = IBMWatson::TextToSpeechV1.new(
-      authenticator: authenticator
-    )
-    text_to_speech.service_url = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/1ec3ea8a-211a-4dc3-951f-6d32fa16724f"
-  
-
-    File.new("output.wav", "w+") do |audio_file|
-      response = text_to_speech.synthesize(
-        text: "Hello world!",
-        accept: "audio/wav",
-        voice: "en-US_AllisonVoice"
-      ).result
-        audio_file << response
-      end
-    puts JSON.pretty_generate(text_to_speech.list_voices.result)
-
-
+ require Rails.root.join('lib', 'google.rb')
+ require Rails.root.join('lib', 'watson.rb')
+ config.authorize_with do |controller|
     unless current_user&.is_employee?(current_user) ==  true
       redirect_to main_app.root_path
       flash[:error] = "You are not an admin"
     end
   end
+
+config.actions do
+  dashboard       # mandatory                   
+  index
+  # root          # mandatory             
+  new
+  export
+  bulk_delete
+  show
+  edit
+  delete
+  show_in_app
+  google
+  watson
+  ## With an audit adapter, you can add:
+  # history_index
+  # history_show
+  end
 end
-
-
 # RailsAdmin.config do |config|
 #     config.authenticate_with do
 #       warden.authenticate! scope: :user
 #     end
 #     config.current_user_method(&:current_user)
 #   end
+
