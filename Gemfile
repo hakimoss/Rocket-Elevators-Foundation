@@ -77,6 +77,22 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem "rails_admin_map_field"
 gem 'gmaps4rails'
 
+
 #gem 'pg', '~> 0.18.4'
 
-# or in development mode
+gem 'rails_admin_google_map'
+
+gem 'figaro'
+
+gem "slack-notifier"
+
+gem 'twilio-ruby', '~> 5.55.0'
+
+gem "dropbox_api"
+
+gem 'sendgrid-ruby'
+
+gem 'zendesk_api'
+
+gem 'ibm_watson'
+

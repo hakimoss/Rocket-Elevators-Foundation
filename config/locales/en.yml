@@ -36,3 +36,7 @@ en:
           title: "Maps" 
           menu: "Google Maps"
           breadcrumb: "Google Maps"    
+      watson:
+          title: "Dashboard Informations"
+          menu: "Watson" 
+          breadcrumb: "Watson"
