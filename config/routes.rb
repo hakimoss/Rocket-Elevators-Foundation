@@ -9,13 +9,16 @@ Rails.application.routes.draw do
 
   root 'website#index'
   get '/index', to: 'website#index'
-
+  
   get '/residential', to: 'website#residential'
 
   get '/commercial', to: 'website#commercial'
 
   get '/quote', to: 'website#quote'
 
+  get '/google', to: 'google#maps'
+
   post '/watson/greetings', to: 'watson#greetings'
 
 end
+
