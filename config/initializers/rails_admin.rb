@@ -6,11 +6,11 @@ RailsAdmin.config do |config|
       flash[:error] = "You are not an admin"
     end
   end
-  require Rails.root.join('lib', 'rails_admin', 'custom_actions.rb')
+  require Rails.root.join('lib', 'watson.rb')
 config.actions do
   dashboard                     # mandatory
   index
-  root               # mandatory
+  # root               # mandatory
   new
   export
   bulk_delete
@@ -18,6 +18,7 @@ config.actions do
   edit
   delete
   show_in_app
+  watson
 
   ## With an audit adapter, you can add:
   # history_index

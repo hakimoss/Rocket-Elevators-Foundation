@@ -16,6 +16,6 @@ Rails.application.routes.draw do
 
   get '/quote', to: 'website#quote'
 
-  get 'greetings' => 'watson#greetings'
+  post '/watson/greetings', to: 'watson#greetings'
 
 end
