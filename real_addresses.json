@@ -6,9 +6,9 @@
             "city": "Washington",
             "state": "DC",
             "postalCode": "20020",
-         
             "latitude": 38.867033,
             "longitude": -76.979235
+
         
         },
         {
@@ -17,9 +17,10 @@
             "city": "Louisville",
             "state": "KY",
             "postalCode": "40219",
-       
+
             "latitude": 38.1343013,
             "longitude": -85.6498512
+           
            
         },
         {

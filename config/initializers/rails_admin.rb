@@ -21,19 +21,25 @@ RailsAdmin.config do |config|
       flash[:error] = "You are not an admin"
     end
   end
-end
 
-RailsAdmin.config do |config|
-  config.model Address do
-    edit do
-      field :latitude, :address do
-        longitude_field :longitude
-        google_api_key 
-      end
-    end
-  end
+require Rails.root.join('lib', 'rails_admin', 'custom_actions.rb')
+config.actions do
+  dashboard                     # mandatory
+  index
+  root              # mandatory
+  new
+  export
+  bulk_delete
+  show
+  edit
+  delete
+  show_in_app
+
+  ## With an audit adapter, you can add:
+  # history_index
+  # history_show
 end
-   
+end
 # RailsAdmin.config do |config|
 #     config.authenticate_with do
 #       warden.authenticate! scope: :user
