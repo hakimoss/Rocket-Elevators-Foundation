@@ -15,6 +15,9 @@ def maps
         building1 = Building.where(id: maps.building_detail).first
         address1 = Address.where(id: building1.address_of_the_building_id).first
         customer1 = Customer.where(id: building1.customer_id).first
+        battery1 = Battery.where(id: building1.building_detail).first
+        columns1 = Column.where(id: maps.battery_ids).first
+        buildingDetail1 = BuildingDetail.where(building_id: building1.id).first
         
         clientname = customer1.compagny_name
         numoffloors = 0
@@ -22,6 +25,23 @@ def maps
         numofcolumns = 0 
         numofelevators = 0
         fullnameofcontact = building1.full_name_of_the_technical_contact_for_the_building
+
+        if buildingDetail1.present? then
+            numoffloors = buildingDetail1.value
+        end    
+        
+        batteries = Battery.where(building_id: building1.id)
+        batteries.each do |b|
+            numofbatteries += 1
+            columns = Column.where(battery_id: battery1.id)
+            columns.each do |c|
+                numofcolumns += 1
+                elevators = Elevator.where(column_id: columns1.id)
+                elevators.each do |e|
+                    numofelevators += 1
+                end
+            end 
+        end 
 
         marker.lat address1.latitude  
         marker.lng address1.longitude

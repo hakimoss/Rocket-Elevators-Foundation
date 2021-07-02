@@ -13,10 +13,10 @@ module RailsAdmin
           authorized? 		# This ensures the action only shows up for the right class
         end
       end
-      class Foo < Customaction
+      class Maps < Customaction
         RailsAdmin::Config::Actions.register(self)
-        register_instance_option :only do
-          # model name here
+        register_instance_option :maps do
+          model.google
         end
         register_instance_option :link_icon do
           'fa fa-paper-plane' # use any of font-awesome icons
@@ -32,21 +32,18 @@ module RailsAdmin
           end
         end
       end
-
+      class Collection < RailsAdmin::Config::Actions::Base
+        RailsAdmin::Config::Actions.register(self)
+        register_instance_option :collection do
+          true	#	this is for all records in specific model
+        end
+      end
       class Root < RailsAdmin::Config::Actions::Base
         RailsAdmin::Config::Actions.register(self)
         register_instance_option :root do
           true	#	this is for all records in all models
         end
       end
-
-      class Gmap < RailsAdmin::Config::Actions::Base
-        RailsAdmin::Config::Actions.register(self)
-        register_instance_option :gmap do
-          true	#	this is for all records in all models
-          
-        end
-      end
-      end  
     end
   end
+end

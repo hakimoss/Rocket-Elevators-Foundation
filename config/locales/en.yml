@@ -32,7 +32,7 @@ en:
   hello: "Hello world"
   admin: 
     actions:
-      root:
+      Maps:
           title: "Maps" 
           menu: "Google Maps"
           breadcrumb: "Google Maps"

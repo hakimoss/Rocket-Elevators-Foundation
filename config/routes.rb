@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   get '/quote', to: 'website#quote'
 
-  get '/google', to: 'google#create'
+  get '/google', to: 'google#maps'
 
-  get '/google_map', to: 'google#maps' 
 end

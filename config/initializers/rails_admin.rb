@@ -22,11 +22,12 @@ RailsAdmin.config do |config|
     end
   end
 
-require Rails.root.join('lib', 'rails_admin', 'custom_actions.rb')
+require Rails.root.join('lib', 'rails_admin', 'maps.rb')
 config.actions do
-  dashboard                     # mandatory
+  dashboard       # mandatory                   
   index
-  root              # mandatory
+  root          # mandatory
+  maps              
   new
   export
   bulk_delete
