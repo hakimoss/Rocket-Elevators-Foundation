@@ -74,12 +74,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.2'
 
 gem 'rails_admin', github: 'sferik/rails_admin'
-gem 'rails_admin_google_map'
 gem "rails_admin_map_field"
 gem 'gmaps4rails'
 
 
-gem 'pg', '~> 0.18.4'
+#gem 'pg', '~> 0.18.4'
 
 gem 'rails_admin_google_map'
 
