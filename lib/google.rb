@@ -24,6 +24,7 @@ module RailsAdmin
         #   end
         # end
       end
+
       #   register_instance_option :member do  #	this is for specific record
       #     true
       #   end

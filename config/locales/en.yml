@@ -35,4 +35,8 @@ en:
       google:
           title: "Maps" 
           menu: "Google Maps"
-          breadcrumb: "Google Maps"
+          breadcrumb: "Google Maps" 
+      alex:
+          title: "alex" 
+          menu: "petit penis"
+          breadcrumb: "petit penis"        
