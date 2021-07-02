@@ -79,3 +79,6 @@ gem "rails_admin_map_field"
 gem 'gmaps4rails'
 
 #gem 'pg', '~> 0.18.4'
+
+gem 'rails_admin_google_map'
+# or in development mode

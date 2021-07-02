@@ -15,6 +15,7 @@
 # end
 
 RailsAdmin.config do |config|
+  require Rails.root.join('lib', 'google.rb')
   config.authorize_with do |controller|
     unless current_user&.is_employee?(current_user) ==  true
       redirect_to main_app.root_path
@@ -22,12 +23,11 @@ RailsAdmin.config do |config|
     end
   end
 
-require Rails.root.join('lib', 'rails_admin', 'maps.rb')
+
 config.actions do
   dashboard       # mandatory                   
   index
-  root          # mandatory
-  maps              
+  # root          # mandatory             
   new
   export
   bulk_delete
@@ -35,6 +35,7 @@ config.actions do
   edit
   delete
   show_in_app
+  google
 
   ## With an audit adapter, you can add:
   # history_index

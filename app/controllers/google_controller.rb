@@ -11,7 +11,7 @@ def create
     end  
 end
 def maps
-    @maps_default = Gmaps4rails.build_markers(Building.all) do |maps, marker|
+    return Gmaps4rails.build_markers(Building.all) do |maps, marker|
         building1 = Building.where(id: maps.building_detail).first
         address1 = Address.where(id: building1.address_of_the_building_id).first
         customer1 = Customer.where(id: building1.customer_id).first
@@ -27,7 +27,7 @@ def maps
         fullnameofcontact = building1.full_name_of_the_technical_contact_for_the_building
 
         if buildingDetail1.present? then
-            numoffloors = buildingDetail1.value
+            numoffloors = buildingDetail1.value.split.last
         end    
         
         batteries = Battery.where(building_id: building1.id)
