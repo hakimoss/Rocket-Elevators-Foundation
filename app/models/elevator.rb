@@ -30,7 +30,7 @@ class Elevator < ApplicationRecord
         client = Twilio::REST::Client.new(account_sid, auth_token)
 
         from = '+12512921451' #  Twilio number
-        to = '+14182626241' #  mobile phone number
+        to = '+15145037764' #  mobile phone number
 
         # if self.saved_change_to_status? then    
         if self.saved_change_to_status? && status == "Intervention" then                  
