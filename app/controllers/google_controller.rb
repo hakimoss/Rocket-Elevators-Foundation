@@ -37,9 +37,7 @@ def maps
             columns.each do |c|
                 numofcolumns += 1
                 elevators = Elevator.where(column_id: columns1.id)
-                elevators.each do |e|
-                    numofelevators += 1
-                end
+                numofelevators += elevators.count
             end 
         end 
 
