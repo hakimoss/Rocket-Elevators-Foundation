@@ -1,0 +1,26 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+SENDGRID_API_KEY: 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
+
+DROPBOX_APIKEY: EJXyhKB3asEAAAAAAAAAAdyX-LUdhwFJSvDr8WrI6abHz0MJTUv3-smE6IKiB2
+
+ZENDESK_APIKEY: vFZqwcBdk0ILY0IbooD7dZWRSEHs4ATv2z7vwHkU
+
+TWILIO_ACCOUNT_SID: ACc85c257d2b0086000a1888975533d37e
+
+TWILIO_AUTH_TOKEN: 1c70fe14a3da85719834ce9beb620279
+
+SLACK_APIKEY: https://hooks.slack.com/services/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
+
+WATSON_APIKEY: i-oRFSUWBN8e8TKfR1mtQArCwgUh3LZes5UzHKBBZ70Q
+
+GOOLE_MAP_APIKEY: AIzaSyDuuu91wQt8gbLGHvXPuVOH338SnFqu2HQ
