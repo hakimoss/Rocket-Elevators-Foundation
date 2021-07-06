@@ -176,8 +176,6 @@ end
         certificate_of_operations: Faker::Lorem.word,
         information: Faker::Lorem.word,
         notes: Faker::Lorem.word
-        
-
     )
 end
 
