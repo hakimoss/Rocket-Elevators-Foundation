@@ -12,7 +12,7 @@ class WatsonController < ApplicationController
         text_to_speech = IBMWatson::TextToSpeechV1.new(
         authenticator: authenticator
         )
-        text_to_speech.service_url = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/1ec3ea8a-211a-4dc3-951f-6d32fa16724f"
+        text_to_speech.service_url = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/4bc146b9-c01b-41a1-9ffa-d3774c21a6fb"
         elevator_inactive = Elevator.where.not(status: 'Active').count.to_s
         diff_city = Address.select('distinct(city)').count
         user_greeting = "Hello #{current_user.employee.first_name}. There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers. Currently, #{elevator_inactive} elevators are not in Running Status and are being serviced. You currently have #{Quote.count} quotes awaiting processing. You currently have #{Lead.count} leads in your contact requests. #{Battery.count} Batteries are deployed across #{diff_city} cities."
