@@ -28,6 +28,15 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  # hello: "Hello world"
+  admin: 
+    actions:
+      google:
+          title: "Maps" 
+          menu: "Google Maps"
+          breadcrumb: "Google Maps"    
+      watson:
+          title: "Dashboard Informations"
+          menu: "Watson" 
+          breadcrumb: "Watson"

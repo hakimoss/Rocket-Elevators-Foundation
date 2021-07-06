@@ -47,7 +47,7 @@ random_values = [random_type.sample, Faker::Date.between(from: '2018-01-01', to:
 random_status = ["Active", "Inactive"]
 
 data_hash['addresses'].each do |address|
-     Address.create(type_of_address: address_type[rand(4)], status: address_status[rand(2)], entity: address_entity[rand(2)], number_and_street: address['address1'], suite_or_appartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address['state'], notes: nil)
+     Address.create(type_of_address: address_type[rand(4)], status: address_status[rand(2)], entity: address_entity[rand(2)], number_and_street: address['address1'], suite_or_appartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address['state'], latitude: address['latitude'], longitude: address['longitude'], notes: nil)
 end
 
 users_list = [
@@ -176,8 +176,6 @@ end
         certificate_of_operations: Faker::Lorem.word,
         information: Faker::Lorem.word,
         notes: Faker::Lorem.word
-        
-
     )
 end
 

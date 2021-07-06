@@ -555,7 +555,7 @@ var GMaps = (function(global) {
     };
 
     /**
-     * Adjust the map zoom to include all the coordinates in the `latLngs` array.
+     * Adjust the map zoom to include all the google_map in the `latLngs` array.
      *
      * @param {array} latLngs - Collection of `google.maps.LatLng` objects.
      */
@@ -572,7 +572,7 @@ var GMaps = (function(global) {
     };
 
     /**
-     * Center the map using the `lat` and `lng` coordinates.
+     * Center the map using the `lat` and `lng` google_map.
      *
      * @param {number} lat - Latitude of the coordinate.
      * @param {number} lng - Longitude of the coordinate.

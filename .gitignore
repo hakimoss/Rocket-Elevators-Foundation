@@ -27,3 +27,6 @@
 /config/master.key
 # Ignore SQL2 Database, may cause problems to others
 /config/database.yml
+
+# Ignore application configuration
+/config/application.yml
