@@ -1,6 +1,6 @@
-con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'postgres', dbname:'AlexLanglois', password:'Windynumber22')
-#con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'soroush', dbname:'soroushdb', password:'Ms13671370')
-#con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'postgres', dbname:'RocketElevator', password:'Hakima_1990')
+require 'pg'
+
+con = PG::Connection.open(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, user: 'codeboxx', dbname:'AlexandreLanglois', password:'Codeboxx1!')
 
 random_status = ["Pending", "InProgress", "Interrupted", "Resumed", "Complete"]
 random_result = ["Success", "Failure", "Incomplete"]
