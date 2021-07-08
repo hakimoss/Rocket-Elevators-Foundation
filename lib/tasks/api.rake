@@ -1,4 +1,5 @@
-con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'soroush', dbname:'soroushdb', password:'Ms13671370')
+#con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'soroush', dbname:'soroushdb', password:'Ms13671370')
+con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'postgres', dbname:'RocketElevator', password:'Hakima_1990')
 
 random_status = ["Pending", "InProgress", "Interrupted", "Resumed", "Complete"]
 random_result = ["Success", "Failure", "Incomplete"]
@@ -25,8 +26,8 @@ namespace :api do
   task fiseed: :environment do
     con.exec("TRUNCATE TABLE FactIntervention RESTART IDENTITY;")
     Employee.all.each do |e|
-    fakeid = random_id.delete(random_id.sample)
-    fakeBuildingId = Faker::Number.number(digits: 2)
+    fakeid = e.id
+    fakeBuildingId = (40 + e.id)
     fakeBatteryId = Faker::Number.number(digits: 2)
     fakeColumnId = Faker::Number.number(digits: 2)
     fakeElevatorId = Faker::Number.number(digits: 2)
@@ -35,7 +36,7 @@ namespace :api do
     status = random_status.sample
     result = random_result.sample
     fakeReport = Faker::Lorem.paragraph
-    con.exec("INSERT INTO FactIntervention (id, EmployeeID, BuildingID, BatteryID, ColumnID, ElevatorID, Start_date, End_date, Status, Result, Report) VALUES (#{fakeid}, #{e.user_id}, #{fakeBuildingId}, #{fakeBatteryId}, #{fakeColumnId}, #{fakeElevatorId}, '#{fakeStartDate}', '#{fakeEndDate}', '#{status}', '#{result}', '#{fakeReport}');")
+    con.exec("INSERT INTO FactIntervention (id, EmployeeID, BuildingID, BatteryID, ColumnID, ElevatorID, Start_date, End_date, Status, Result, Report) VALUES (#{fakeid}, #{e.id}, #{fakeBuildingId}, #{fakeBatteryId}, #{fakeColumnId}, #{fakeElevatorId}, '#{fakeStartDate}', '#{fakeEndDate}', '#{status}', '#{result}', '#{fakeReport}');")
     end
 
   end
