@@ -1,8 +1,10 @@
-con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'soroush', dbname:'soroushdb', password:'Ms13671370')
+con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'postgres', dbname:'AlexLanglois', password:'Windynumber22')
+#con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'soroush', dbname:'soroushdb', password:'Ms13671370')
+#con = PG::Connection.open(host: '127.0.0.1', port: 5432, user: 'postgres', dbname:'RocketElevator', password:'Hakima_1990')
 
 random_status = ["Pending", "InProgress", "Interrupted", "Resumed", "Complete"]
 random_result = ["Success", "Failure", "Incomplete"]
-random_id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+random_id = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 namespace :api do
 
   desc "FactIntervention table"
@@ -25,8 +27,8 @@ namespace :api do
   task fiseed: :environment do
     con.exec("TRUNCATE TABLE FactIntervention RESTART IDENTITY;")
     Employee.all.each do |e|
-    fakeid = random_id.delete(random_id.sample)
-    fakeBuildingId = Faker::Number.number(digits: 2)
+    fakeid = e.id
+    fakeBuildingId = random_id.sample
     fakeBatteryId = Faker::Number.number(digits: 2)
     fakeColumnId = Faker::Number.number(digits: 2)
     fakeElevatorId = Faker::Number.number(digits: 2)
@@ -35,7 +37,7 @@ namespace :api do
     status = random_status.sample
     result = random_result.sample
     fakeReport = Faker::Lorem.paragraph
-    con.exec("INSERT INTO FactIntervention (id, EmployeeID, BuildingID, BatteryID, ColumnID, ElevatorID, Start_date, End_date, Status, Result, Report) VALUES (#{fakeid}, #{e.user_id}, #{fakeBuildingId}, #{fakeBatteryId}, #{fakeColumnId}, #{fakeElevatorId}, '#{fakeStartDate}', '#{fakeEndDate}', '#{status}', '#{result}', '#{fakeReport}');")
+    con.exec("INSERT INTO FactIntervention (id, EmployeeID, BuildingID, BatteryID, ColumnID, ElevatorID, Start_date, End_date, Status, Result, Report) VALUES (#{fakeid}, #{e.id}, #{fakeBuildingId}, #{fakeBatteryId}, #{fakeColumnId}, #{fakeElevatorId}, '#{fakeStartDate}', '#{fakeEndDate}', '#{status}', '#{result}', '#{fakeReport}');")
     end
 
   end
