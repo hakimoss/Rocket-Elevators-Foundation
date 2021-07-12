@@ -14,7 +14,7 @@ class Intervention < ApplicationRecord
 
 
     def intervention_valid
-        if !self.battery_id && !self.column_id && !self.elevator_id
+        if !self.customer_id && !self.building_id
             errors.add(:you, 'must select at least one of the following option: Battery, Column, Elevator')
         end
 

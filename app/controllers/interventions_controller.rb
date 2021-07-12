@@ -69,13 +69,16 @@ class InterventionsController < ApplicationController
     @intervention.end_date = 'null'
     @intervention.employee_id
     @intervention.valid?
-    if @intervention.column_id = ''
+  
+    if @intervention.column_id == nil
       @intervention.column_id = nil
-      @intervention.elevator_id = nil
-    elsif @intervention.battery_id
+    end
+    if @intervention.battery_id == nil
+       @intervention.battery_id = nil
+    end
    
-    elsif @intervention.elevator_id
-    
+    if @intervention.elevator_id == nil
+      @intervention.elevator_id = nil
     end
 
     # if @intervention.elevator_id
