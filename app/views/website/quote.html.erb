@@ -138,11 +138,27 @@
 											CONTACT
 										</a>
 									</li>
-									<li><!-- USERS login -->
-										<a id="login-nav" href="/admin">
-											SIGN IN
+									<% if user_signed_in? && current_user&.is_employee?(current_user)%>
+									<li><!-- ADMIN -->
+										<a id="admin-nav" href="/admin">
+											ADMIN
 										</a>
 									</li>
+									<li><!-- ADMIN -->
+										<a id="admin-nav" href="/interventions">
+											INTERVENTION
+										</a>
+									</li>
+									<% end %>
+									<% if user_signed_in? %> 
+                                    <li><!-- USERS logout -->
+                                    <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+                                    </li>
+                                    <% else %>
+                                    <li><!-- USERS login -->
+                                     <%= link_to "LOGIN", new_user_session_path %>
+                                    </li>
+                                    <% end %>
 								</ul>
 
 							</nav>

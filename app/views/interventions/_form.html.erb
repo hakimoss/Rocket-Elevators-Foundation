@@ -11,6 +11,68 @@
     </div>
   <% end %>
 
+
+
+<script>
+ $(document).ready(function () {
+    $('#step2').hide();
+    $('#step3').hide();
+    
+    $('#step1').change(function () {
+        $('#step1').hide();
+        $('#step2').show();
+        $('#'+$(this).val()).show();
+    })
+    $('#step2').change(function () {
+        $('#step2').hide();
+        $('#step3').show();
+        $('#'+$(this).val()).show();
+    })
+  });
+</script>
+  
+
+
+
+  <form class="dropdown-menu p-4">
+  <div id="step1">
+    <h4 class="d-flex justify-content-center align-items-center">STEP 1</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.label :customer %>
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.select :customer, Customer.all.collect {|p| [p.compagny_name, p.id]}  %>
+    </div>
+  </div>
+
+
+  <div id="step2">
+    <h4 class="d-flex justify-content-center align-items-center">STEP 2</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.label :author %>
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.select :building, Building.all.collect {|p| [p.customer_id, p.id]} , style: "#{'display:none' if @costumer == 2}"%>
+    </div>
+  </div>
+
+    
+  <div id="step3">
+    <h4 class="d-flex justify-content-center align-items-center">STEP 3</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.label :author %>
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.select :customer, Customer.all.collect {|p| [p.compagny_name, p.id]} %>
+    </div>
+  </div>
+  </form>
+
+
+
+
+  
+
   <div class="field">
     <%= form.label :author %>
     <%= form.number_field :author %>
@@ -72,6 +134,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit %>
   </div>
 <% end %>
