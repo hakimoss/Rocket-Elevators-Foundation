@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
     belongs_to :company_headquarters_address, class_name: "Address", optional: true
     belongs_to :user, class_name: "User", optional: true
-    has_many :buildings
+    has_many :buildings 
     after_create :verify_email
     after_update :verify_email
 

@@ -142,20 +142,27 @@ ActiveRecord::Schema.define(version: 2021_07_11_025302) do
   end
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "author"
-    t.integer "customerid"
-    t.integer "buildingid"
-    t.integer "batteryid"
-    t.integer "columnid"
-    t.integer "elevatorid"
-    t.integer "employeeid"
-    t.datetime "startdate"
-    t.datetime "enddate"
+    t.bigint "author_id"
+    t.bigint "customer_id"
+    t.bigint "building_id"
+    t.bigint "battery_id"
+    t.bigint "column_id"
+    t.bigint "elevator_id"
+    t.bigint "employee_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "result"
-    t.text "report"
+    t.string "report"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_interventions_on_author_id"
+    t.index ["battery_id"], name: "index_interventions_on_battery_id"
+    t.index ["building_id"], name: "index_interventions_on_building_id"
+    t.index ["column_id"], name: "index_interventions_on_column_id"
+    t.index ["customer_id"], name: "index_interventions_on_customer_id"
+    t.index ["elevator_id"], name: "index_interventions_on_elevator_id"
+    t.index ["employee_id"], name: "index_interventions_on_employee_id"
   end
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -216,4 +223,11 @@ ActiveRecord::Schema.define(version: 2021_07_11_025302) do
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
+  add_foreign_key "interventions", "batteries"
+  add_foreign_key "interventions", "buildings"
+  add_foreign_key "interventions", "columns"
+  add_foreign_key "interventions", "customers"
+  add_foreign_key "interventions", "elevators"
+  add_foreign_key "interventions", "employees"
+  add_foreign_key "interventions", "employees", column: "author_id"
 end

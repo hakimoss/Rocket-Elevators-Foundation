@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :interventions
+
+  resources :interventions do
+    get :get_buildings_for_customer, on: :collection
+    get :get_batteries_for_building, on: :collection
+    get :get_columns_for_battery, on: :collection
+    get :get_elevators_for_column, on: :collection
+  end
+  # resources :interventions
   resources :leads
   devise_for :users
   resources :quotes

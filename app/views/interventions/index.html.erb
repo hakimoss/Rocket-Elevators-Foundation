@@ -5,15 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Author</th>
-      <th>Customerid</th>
-      <th>Buildingid</th>
-      <th>Batteryid</th>
-      <th>Columnid</th>
-      <th>Elevatorid</th>
-      <th>Employeeid</th>
-      <th>Startdate</th>
-      <th>Enddate</th>
+      <th>Author_id</th>
+      <th>Customer_id</th>
+      <th>Building_id</th>
+      <th>Battery_id</th>
+      <th>Column_id</th>
+      <th>Elevator_id</th>
+      <th>Employee_id</th>
+      <th>Start_date</th>
+      <th>End_date</th>
       <th>Result</th>
       <th>Report</th>
       <th>Status</th>
@@ -24,15 +24,15 @@
   <tbody>
     <% @interventions.each do |intervention| %>
       <tr>
-        <td><%= intervention.author %></td>
-        <td><%= intervention.customerid %></td>
-        <td><%= intervention.buildingid %></td>
-        <td><%= intervention.batteryid %></td>
-        <td><%= intervention.columnid %></td>
-        <td><%= intervention.elevatorid %></td>
-        <td><%= intervention.employeeid %></td>
-        <td><%= intervention.startdate %></td>
-        <td><%= intervention.enddate %></td>
+        <td><%= intervention.author_id %></td>
+        <td><%= intervention.customer_id %></td>
+        <td><%= intervention.building_id %></td>
+        <td><%= intervention.battery_id %></td>
+        <td><%= intervention.column_id %></td>
+        <td><%= intervention.elevator_id %></td>
+        <td><%= intervention.employee_id %></td>
+        <td><%= intervention.start_date %></td>
+        <td><%= intervention.end_date %></td>
         <td><%= intervention.result %></td>
         <td><%= intervention.report %></td>
         <td><%= intervention.status %></td>
