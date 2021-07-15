@@ -22,22 +22,7 @@ class InterventionsController < ApplicationController
     end
   end
 
-  # def test456
-  #   if params[:buildingid].present?
-  #     @intervention.buildingid = Building.find(params[:customer_id]).interventions
-  # else
-  #     @intervention = Intervention.all
-  # end
-  # if request.xhr?
-  #     respond_to do |format|
-  #         format.json {
-  #             render json: {intervention: @intervention}
-  #         }
-  #     end
-  # end
-  # end
-
-
+ 
 
 
 
@@ -57,7 +42,6 @@ class InterventionsController < ApplicationController
   # POST /interventions or /interventions.json
   def create
     @intervention = Intervention.new(intervention_params)
-    # @intervention.author = current_user.id
 
     if current_user.employee
       @intervention.author_id = Employee.where(user_id: current_user.id)[0].id
@@ -70,26 +54,6 @@ class InterventionsController < ApplicationController
     @intervention.employee_id
     @intervention.valid?
   
-    if @intervention.column_id == nil
-      @intervention.column_id = nil
-    end
-    if @intervention.battery_id == nil
-       @intervention.battery_id = nil
-    end
-   
-    if @intervention.elevator_id == nil
-      @intervention.elevator_id = nil
-    end
-
-    # if @intervention.elevator_id
-    #   @intervention.column_id= ''
-    #   @intervention.battery_id= ''
-    # elsif @intervention.column_id
-    #   @intervention.elevator_id= ''
-    #   @intervention.battery_id= ''
-    # elsif @intervention.battery_id
-    #   @intervention.elevator_id= ''
-    #   @intervention.column_id= ''
 
     @intervention.save
     respond_to do |format|

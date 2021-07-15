@@ -1,64 +1,217 @@
+<div id="header" class="navbar-toggleable-md sticky clearfix">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left scrollTo" href="#top" style="background-color: #FFFFFF">
+							<img src="<%= asset_path('R2.png') %>" alt="" />
+						</a>
+
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+							<nav class="nav-main">
+
+								<!-- 
+									
+									
+									Add .external for an external link!
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li class="active"><!-- HOME -->
+										<a id="home-nav" href="/index">
+											HOME
+										</a>
+									</li>
+									<li><!-- SERVICES -->
+										<li class="dropdown">
+										<a class="dropdown-toggle" id="services-nav" href="/index#services">
+										  SERVICES
+											</a>
+										<ul class="dropdown-menu">
+										  <li><a href="residential">Residential</a></li>
+										  <li><a href="commercial">Commercial</a></li>
+										</ul>
+									</li>
+									</li>
+									<li><!-- PORTFOLIO -->
+										<a id="portfolio-nav" href="/index#PORTFOLIO">
+											PORTFOLIO
+										</a>
+									</li>
+									<li><!-- NEWS -->
+										<a id="news-nav" href="/index#news">
+											NEWS
+										</a>
+									</li>
+
+									<li><!-- CLIENTS -->
+										<a id="clients-nav" href="/index#clients">
+											CLIENTS
+										</a>
+									</li>
+
+									<li><!-- CONTACT -->
+										<a id="contact-nav" href="/index#contact">
+											CONTACT
+										</a>
+									</li>
+									<% if user_signed_in? && current_user&.is_employee?(current_user)%>
+									<li><!-- ADMIN -->
+										<a id="admin-nav" href="/admin">
+											ADMIN
+										</a>
+									</li>
+									<li><!-- ADMIN -->
+										<a id="admin-nav" href="/interventions">
+											INTERVENTION
+										</a>
+									</li>
+									<% end %>
+									<% if user_signed_in? %> 
+                                    <li><!-- USERS logout -->
+                                    <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+                                    </li>
+                                    <% else %>
+                                    <li><!-- USERS login -->
+                                     <%= link_to "LOGIN", new_user_session_path %>
+                                    </li>
+                                    <% end %>
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+			</div>
+
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @intervention.author_id %>
-</p>
+<div class="d-flex justify-content-center">
+  <p style="margin:10px 20px">
+    <strong>Author:</strong>
+    <%= @intervention.author_id %>
+  </p>
 
-<p>
-  <strong>Customerid:</strong>
-  <%= @intervention.customer_id %>
-</p>
+  <p style="margin:10px 20px">
+    <strong>Customerid:</strong>
+    <%= @intervention.customer_id %>
+  </p>
 
-<p>
-  <strong>Buildingid:</strong>
-  <%= @intervention.building_id %>
-</p>
+  <p style="margin:10px 20px">
+    <strong>Buildingid:</strong>
+    <%= @intervention.building_id %>
+  </p>
+</div>
 
-<p>
-  <strong>Batteryid:</strong>
-  <%= @intervention.battery_id %>
-</p>
 
-<p>
-  <strong>Columnid:</strong>
-  <%= @intervention.column_id %>
-</p>
+<div class="d-flex justify-content-center">
+  <p style="margin:10px 20px">
+    <strong>Batteryid:</strong>
+    <%= @intervention.battery_id %>
+  </p>
 
-<p>
-  <strong>Elevatorid:</strong>
-  <%= @intervention.elevator_id %>
-</p>
+  <p style="margin:10px 20px">
+    <strong>Columnid:</strong>
+    <%= @intervention.column_id %>
+  </p>
 
-<p>
-  <strong>Employeeid:</strong>
-  <%= @intervention.employee_id %>
-</p>
+  <p style="margin:10px 20px">
+    <strong>Elevatorid:</strong>
+    <%= @intervention.elevator_id %>
+  </p>
+</div>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @intervention.start_date %>
-</p>
+<div class="d-flex justify-content-center">
+  <p style="margin:10px 20px">
+    <strong>Employeeid:</strong>
+    <%= @intervention.employee_id %>
+  </p>
 
-<p>
-  <strong>Enddate:</strong>
-  <%= @intervention.end_date %>
-</p>
+  <p style="margin:10px 20px">
+    <strong>Startdate:</strong>
+    <%= @intervention.start_date %>
+  </p>
 
-<p>
-  <strong>Result:</strong>
-  <%= @intervention.result %>
-</p>
+  <p style="margin:10px 20px">
+    <strong>Enddate:</strong>
+    <%= @intervention.end_date %>
+  </p>
+</div>
 
-<p>
-  <strong>Report:</strong>
-  <%= @intervention.report %>
-</p>
+<div class="d-flex justify-content-center">
+  <p style="margin:10px 20px">
+    <strong>Result:</strong>
+    <%= @intervention.result %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @intervention.status %>
-</p>
+  <p style="margin:10px 20px">
+    <strong>Report:</strong>
+    <%= @intervention.report %>
+  </p>
+
+  <p style="margin:10px 20px">
+    <strong>Status:</strong>
+    <%= @intervention.status %>
+  </p>
+</div>
+
 
 <%= link_to 'Edit', edit_intervention_path(@intervention) %> |
 <%= link_to 'Back', interventions_path %>
+
+
+
+<footer id="footer" style="margin-top:50px">
+				<div class="container" >
+
+
+					<div class="row">
+
+						<!-- col #1 -->
+						<div class="col-md-8">
+
+							<h3 class="letter-spacing-1">WHY US?</h3>
+
+							<!-- Small Description -->
+							<p>
+							We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have.
+
+							</p>
+							<h2>(418) 555-1234</h2>
+						</div>
+						<!-- /col #1 -->
+
+						
+					</div>
+
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+							<li>Terms &amp; Conditions</li>
+							<li>&bull;</li>
+							<li>Privacy</li>
+						</ul>
+						&copy; All Rights Reserved, Rocket Elevators
+					</div>
+				</div>
+
+			</footer>

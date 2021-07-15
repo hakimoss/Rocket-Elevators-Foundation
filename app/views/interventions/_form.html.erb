@@ -75,7 +75,7 @@ $(document).ready(function () {
       var selected_building_id = $(this).val();
       $.get('/interventions/get_batteries_for_building', {building_id: selected_building_id}, function(result) {
         $("#intervention_battery_id").empty();
-        $("#intervention_battery_id").append('<option>Select Battery</option>');
+        $("#intervention_battery_id").append('<option value="">None</option>');
         $.each(result, function(i, j) {
           var row = '<option value="' + j.id + '">' + j.id + '</option>';
           // console.log(row);
@@ -89,7 +89,7 @@ $(document).ready(function () {
       var selected_battery_id = $(this).val();
       $.get('/interventions/get_columns_for_battery', {battery_id: selected_battery_id}, function(result) {
         $("#intervention_column_id").empty();
-        $("#intervention_column_id").append('<option>None</option>');
+        $("#intervention_column_id").append('<option value="">None</option>');
         $.each(result, function(i, j) {
           var row = '<option value="' + j.id + '">' + j.id + '</option>';
           // console.log(row);
@@ -103,7 +103,7 @@ $(document).ready(function () {
       var selected_column_id = $(this).val();
       $.get('/interventions/get_elevators_for_column', {column_id: selected_column_id}, function(result) {
         $("#intervention_elevator_id").empty();
-        $("#intervention_elevator_id").append('<option>None</option>');
+        $("#intervention_elevator_id").append('<option value="">None</option>');
         $.each(result, function(i, j) {
           var row = '<option value="' + j.id + '">' + j.id + '</option>';
           // console.log(row);
