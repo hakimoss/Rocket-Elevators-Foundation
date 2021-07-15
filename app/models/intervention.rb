@@ -73,10 +73,11 @@ class Intervention < ApplicationRecord
         customer = Customer.find(customer_id)
         author = Employee.find(author_id)
         employee = Employee.find(employee_id)
+        intervention = Intervention.find(id)
 
-        puts "This is the client after creation #{client}"
+        puts "This is the client after creation #{intervention.id}"
         client.tickets.create(
-            :subject => "problem or question", 
+            :subject => "Intervention #{intervention.id}", 
             :comment => { :value => "The author #{author.first_name} #{author.last_name} created a ticket for the company #{customer.compagny_name} for the Building ID: #{building_id}, Battery ID: #{battery_id}, Column ID: #{column_id}, Elevator ID: #{elevator_id}. The employee assigned to this task is #{employee.first_name} #{employee.last_name}" }, 
             :submitter_id => client.current_user.id,
             :type => "question", 
