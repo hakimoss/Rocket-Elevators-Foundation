@@ -10,130 +10,179 @@
       </ul>
     </div>
   <% end %>
-
-
-
 <script>
- $(document).ready(function () {
+$(document).ready(function () {
     $('#step2').hide();
     $('#step3').hide();
+    $('#step4').hide();
+    $('#step5').hide();
+    // $('#step8').hide();
     
     $('#step1').change(function () {
-        $('#step1').hide();
         $('#step2').show();
         $('#'+$(this).val()).show();
     })
     $('#step2').change(function () {
-        $('#step2').hide();
         $('#step3').show();
         $('#'+$(this).val()).show();
     })
+    $('#step3').change(function () {
+        $('#step4').show();
+        $('#'+$(this).val()).show();
+    })
+    $('#step4').change(function () {
+        $('#step5').show();
+        $('#'+$(this).val()).show();
+    })
+    $('#step6').change(function () {
+        $('#step8').show();
+        $('#'+$(this).val()).show();
+    })
   });
-</script>
-  
+
+  // A $( document ).ready() block.
+  $( document ).ready(function() {
+    console.log( "ready!" );
+
+    cust = $("#intervention_customer_id");
+    build = $('#intervention_building_id');
+    batt = $('#intervention_battery_id');
+    col = $('#intervention_column_id');
+    elev = $('#intervention_elevator_id');
 
 
+// Buildings dropdown menu
+    $("#intervention_customer_id").change(function() {
 
-  <form class="dropdown-menu p-4">
-  <div id="step1">
-    <h4 class="d-flex justify-content-center align-items-center">STEP 1</h4>
-    <div class="field d-flex justify-content-center align-items-center">
-      <%= form.label :customer %>
-    </div>
-    <div class="field d-flex justify-content-center align-items-center">
-      <%= form.select :customer, Customer.all.collect {|p| [p.compagny_name, p.id]}  %>
-    </div>
-  </div>
+      var selected_customer_id = $(this).val();
+      console.log( $(this).val() );
 
+      // 
+      var selected_customer_id = $(this).val();
+      $.get('/interventions/get_buildings_for_customer', {customer_id: selected_customer_id}, function(result) {
+        var buildings = result["buildings"];
+        $("#intervention_building_id").empty();
+        $("#intervention_building_id").append('<option>Select Building</option>');
+        $.each(result, function(i, j) {
+          var row = '<option value="' + j.id + '">' + j.id + '</option>';
+          $(row).appendTo("#intervention_building_id")
+        });
+      });
+    });
 
-  <div id="step2">
-    <h4 class="d-flex justify-content-center align-items-center">STEP 2</h4>
-    <div class="field d-flex justify-content-center align-items-center">
-      <%= form.label :author %>
-    </div>
-    <div class="field d-flex justify-content-center align-items-center">
-      <%= form.select :building, Building.all.collect {|p| [p.customer_id, p.id]} , style: "#{'display:none' if @costumer == 2}"%>
-    </div>
-  </div>
+  // Batteries dropdown menu
+  $("#intervention_building_id").change(function() {
+      var selected_building_id = $(this).val();
+      $.get('/interventions/get_batteries_for_building', {building_id: selected_building_id}, function(result) {
+        $("#intervention_battery_id").empty();
+        $("#intervention_battery_id").append('<option>Select Battery</option>');
+        $.each(result, function(i, j) {
+          var row = '<option value="' + j.id + '">' + j.id + '</option>';
+          // console.log(row);
+          $(row).appendTo("#intervention_battery_id")
+        });
+      });
+    });
 
+  // Column dropdown menu
+  $("#intervention_battery_id").change(function() {
+      var selected_battery_id = $(this).val();
+      $.get('/interventions/get_columns_for_battery', {battery_id: selected_battery_id}, function(result) {
+        $("#intervention_column_id").empty();
+        $("#intervention_column_id").append('<option>None</option>');
+        $.each(result, function(i, j) {
+          var row = '<option value="' + j.id + '">' + j.id + '</option>';
+          // console.log(row);
+          $(row).appendTo("#intervention_column_id")
+        });
+      });
+    });
+
+  // Elevator dropdown menu
+  $("#intervention_column_id").change(function() {
+      var selected_column_id = $(this).val();
+      $.get('/interventions/get_elevators_for_column', {column_id: selected_column_id}, function(result) {
+        $("#intervention_elevator_id").empty();
+        $("#intervention_elevator_id").append('<option>None</option>');
+        $.each(result, function(i, j) {
+          var row = '<option value="' + j.id + '">' + j.id + '</option>';
+          // console.log(row);
+          $(row).appendTo("#intervention_elevator_id")
+        });
+      });
+    });
     
+  });
+
+</script>
+
+<form class="dropdown-menu"  >
+  <div id="step1">
+    <h4 class="d-flex justify-content-center align-items-center" style="margin-top:20px">Choose a Customer*</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.select(:customer_id, Customer.all.collect {|p| [p.compagny_name, p.id]}.sort_by(&:first), {prompt: "-Select Customer-"}, {style: 'width:50%'}) %> 
+    </div>
+  </div>
+  <div id="step2">
+    <h4 class="field d-flex justify-content-center align-items-center">Choose a Building*</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%# <%= form.label :building %>
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
+       <%= form.select(:building_id, Building.all.collect {|t| [t.id, t.customer_id ]}, {prompt: "-Select Building-"}, {style: 'width:50%'}) %>
+    </div>
+  </div>
   <div id="step3">
-    <h4 class="d-flex justify-content-center align-items-center">STEP 3</h4>
+    <h4 class="field d-flex justify-content-center align-items-center">Choose a Battery</h4>
     <div class="field d-flex justify-content-center align-items-center">
-      <%= form.label :author %>
+      <%# <%= form.label :battery %> 
     </div>
     <div class="field d-flex justify-content-center align-items-center">
-      <%= form.select :customer, Customer.all.collect {|p| [p.compagny_name, p.id]} %>
+       <%= form.select(:battery_id, Battery.all.collect {|b| [b.id, b.building_id ]}, {prompt: "-Select Battery-"}, {style: 'width:50%'}) %>
     </div>
   </div>
-  </form>
-
-
-
-
-  
-
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.number_field :author %>
+  <div id="step4">
+    <h4 class="field d-flex justify-content-center align-items-center">Choose a Column</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+     <%#  <%= form.label :column %> 
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.select(:column_id, Column.all.collect {|c| [c.id, c.battery_id ]}, {prompt: "-Select Column-"}, {style: 'width:50%'}) %>
+    </div>
   </div>
+  <div id="step5">
+    <h4 class="field d-flex justify-content-center align-items-center">Choose an Elevator</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%# <%= form.label :elevator %> 
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
 
-  <div class="field">
-    <%= form.label :customerid %>
-    <%= form.number_field :customerid %>
+       <%= form.select(:elevator_id, Elevator.all.collect {|e| [e.id, e.column_id ]}, {prompt: "-Select Elevator-"}, {style: 'width:50%'}) %>
+    </div>
   </div>
+  <div id="step6">
+    <h4 class="field d-flex justify-content-center align-items-center">Choose an Employee*</h4>
+    <div class="field d-flex justify-content-center align-items-center">
+      <%# <%= form.label :employee %> 
+    </div>
+    <div class="field d-flex justify-content-center align-items-center">
+        <%= form.select(:employee_id, Employee.all.collect {|k| [k.first_name + " " + k.last_name, k.id]}, {prompt: "-Select Employee-"}, {style: 'width:50%'}) %>    
+    </div>
+  </div>
+  <div id="step7" class="field d-flex justify-content-center align-items-center">
+    <%# <%= form.label :report %> 
+  </div>  
+  <div class="field d-flex justify-content-center align-items-center">
+    <%= form.text_area :report, class: 'form-control', rows: '4', style: 'width:50%' %>
+  </div>
+  <div id="step8">
+    <div class="field d-flex justify-content-center align-items-center">
+      <%= form.submit :Submit %>
+    </div>
+  </div>  
+</form>
 
-  <div class="field">
-    <%= form.label :buildingid %>
-    <%= form.number_field :buildingid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :batteryid %>
-    <%= form.number_field :batteryid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :columnid %>
-    <%= form.number_field :columnid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :elevatorid %>
-    <%= form.number_field :elevatorid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employeeid %>
-    <%= form.number_field :employeeid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :startdate %>
-    <%= form.datetime_select :startdate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :enddate %>
-    <%= form.datetime_select :enddate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :result %>
-    <%= form.text_field :result %>
-  </div>
-
-  <div class="field">
-    <%= form.label :report %>
-    <%= form.text_area :report %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit :Submit %>
-  </div>
 <% end %>
+     

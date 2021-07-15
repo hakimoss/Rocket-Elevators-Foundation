@@ -6,9 +6,10 @@ class InterventionsController < ApplicationController
   def index
     @interventions = Intervention.all
   end
+
   def has_access
     if current_user
-      if current_user.employee
+      if current_user.employee || current_user.is_admin
       else
         respond_to do |format|
           format.html { redirect_to root_path, notice: "You need to be an Employee to access in this page" }
@@ -20,6 +21,24 @@ class InterventionsController < ApplicationController
       end
     end
   end
+
+  # def test456
+  #   if params[:buildingid].present?
+  #     @intervention.buildingid = Building.find(params[:customer_id]).interventions
+  # else
+  #     @intervention = Intervention.all
+  # end
+  # if request.xhr?
+  #     respond_to do |format|
+  #         format.json {
+  #             render json: {intervention: @intervention}
+  #         }
+  #     end
+  # end
+  # end
+
+
+
 
 
   # GET /interventions/1 or /interventions/1.json
@@ -38,8 +57,41 @@ class InterventionsController < ApplicationController
   # POST /interventions or /interventions.json
   def create
     @intervention = Intervention.new(intervention_params)
-    @intervention.author = current_user.id
+    # @intervention.author = current_user.id
 
+    if current_user.employee
+      @intervention.author_id = Employee.where(user_id: current_user.id)[0].id
+    end
+
+    @intervention.result = 'Incomplete'
+    @intervention.status = 'Pending'
+    @intervention.start_date = 'null'
+    @intervention.end_date = 'null'
+    @intervention.employee_id
+    @intervention.valid?
+  
+    if @intervention.column_id == nil
+      @intervention.column_id = nil
+    end
+    if @intervention.battery_id == nil
+       @intervention.battery_id = nil
+    end
+   
+    if @intervention.elevator_id == nil
+      @intervention.elevator_id = nil
+    end
+
+    # if @intervention.elevator_id
+    #   @intervention.column_id= ''
+    #   @intervention.battery_id= ''
+    # elsif @intervention.column_id
+    #   @intervention.elevator_id= ''
+    #   @intervention.battery_id= ''
+    # elsif @intervention.battery_id
+    #   @intervention.elevator_id= ''
+    #   @intervention.column_id= ''
+
+    @intervention.save
     respond_to do |format|
       if @intervention.save
         format.html { redirect_to @intervention, notice: "Intervention was successfully created." }
@@ -51,8 +103,21 @@ class InterventionsController < ApplicationController
     end
   end
 
+  # def get_buildings_for_customer
+  #   puts "get_buildings_for_customer"
+  #   puts params
+  #   # @buildings = Customer.find(params[:])
+  #   @buildings = Building.where("customer_id = ?", params[:customerid])
+  #   puts "here are the buildings:"
+  #   puts @buildings
+  #   respond_to do |format|
+  #   format.json { render :json => @buildings }
+  #   end
+  # end
+
   # PATCH/PUT /interventions/1 or /interventions/1.json
   def update
+
     respond_to do |format|
       if @intervention.update(intervention_params)
         format.html { redirect_to @intervention, notice: "Intervention was successfully updated." }
@@ -73,6 +138,47 @@ class InterventionsController < ApplicationController
     end
   end
 
+  def get_buildings_for_customer
+    puts "get_buildings_for_customer"
+    puts params
+    @buildings = Building.where("customer_id = ?", params[:customer_id])
+    puts "here are the buildings:"
+    puts @buildings
+    respond_to do |format|
+    format.json { render :json => @buildings }
+    end
+  end
+
+  def get_batteries_for_building
+    puts "get_batteries_for_building"
+    puts params
+    @batteries = Battery.where("building_id = ?", params[:building_id])
+    puts "here are the batteries:"
+    puts @batteries
+    respond_to do |format|
+    format.json { render :json => @batteries }
+    end
+  end
+
+  def get_columns_for_battery
+    puts "get_columns_for_battery"
+    puts params
+    @columns = Column.where("battery_id = ?", params[:battery_id])
+    respond_to do |format|
+    format.json { render :json => @columns }
+    end
+  end
+
+  def get_elevators_for_column
+    puts "get_elevators_for_column"
+    puts params
+    @elevators = Elevator.where("column_id = ?", params[:column_id])
+    respond_to do |format|
+    format.json { render :json => @elevators }
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_intervention
@@ -81,6 +187,6 @@ class InterventionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def intervention_params
-      params.require(:intervention).permit(:author, :customerid, :buildingid, :batteryid, :columnid, :elevatorid, :employeeid, :startdate, :enddate, :result, :report, :status)
+      params.require(:intervention).permit(:author_id, :customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id, :start_date, :end_date, :result, :report, :status)
     end
 end
