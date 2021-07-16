@@ -1,3 +1,77 @@
 // Place all the styles related to the Interventions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+#roue1 {
+    margin-top: 1vh;
+    width: 5%;
+    position: absolute;
+    animation: rotateRight 5s infinite;
+    animation-timing-function: linear;
+}
+
+#roue2 {
+    margin-top: 1vh;
+    width: 3%;
+    position: absolute;
+    left: 30.6%;
+    animation: rotateLeft 3s infinite;
+    animation-timing-function: linear;
+
+}
+
+#backbutton {
+    color: blue;
+    
+}
+
+#backbutton:hover {
+    color: red;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+#ctnAllIntervention{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+
+
+
+
+/////////// animation //////////////
+
+
+@keyframes rotateRight {
+    to {
+        transform: rotate(360deg)
+    }
+  }
+
+@keyframes rotateLeft {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(-360deg)
+    }
+  }
+
+
+  ///////// responsive ///////////
+
+  @media only screen and (max-width: 1100px) {
+    #roue1 {
+        display: none;
+    } 
+    #roue2 {
+        display: none;
+    }
+    
+  }
