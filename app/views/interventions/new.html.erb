@@ -73,10 +73,14 @@
 											ADMIN
 										</a>
 									</li>
-									<li><!-- ADMIN -->
-										<a id="admin-nav" href="/interventions">
-											INTERVENTION
-										</a>
+									<li class="dropdown">
+										<a class="dropdown-toggle" id="services-nav" href="/index#services">
+										  INTERVENTION
+											</a>
+										<ul class="dropdown-menu">
+										  <li><a href="/interventions/new">NEW INTERVENTION</a></li>
+										  <li><a href="/interventions">ALL INTERVENTION</a></li>
+										</ul>
 									</li>
 									<% end %>
 									<% if user_signed_in? %> 
@@ -100,9 +104,9 @@
 
 
 <h1 class="d-flex justify-content-center align-items-center" style="margin-top:50px">New Intervention</h1>
-<div style="background-color: #c7c7c7;width:50%;margin-left:25%;border-radius:10px;padding:20px">
+<div style="background-color: #c7c7c7;width:50%;margin-left:25%;border-radius:10px;padding:20px;box-shadow: 5px 5px 10px grey;background:linear-gradient(14deg, rgba(223,223,223,1) 0%, rgba(37,135,186,1) 100%);">
     <%= render 'form', intervention: @intervention %>
-    <%= link_to 'Back', interventions_path, {style: 'color:#808080'} %>
+    <%= link_to 'Back', interventions_path, {id: 'backbutton'} %>
 </div>
 
 

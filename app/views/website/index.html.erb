@@ -127,10 +127,14 @@
 											ADMIN
 										</a>
 									</li>
-									<li><!-- ADMIN -->
-										<a id="admin-nav" href="/interventions/new">
-											INTERVENTION
-										</a>
+									<li class="dropdown">
+										<a class="dropdown-toggle" id="services-nav" href="/index#services">
+										  INTERVENTION
+											</a>
+										<ul class="dropdown-menu">
+										  <li><a href="/interventions/new">NEW INTERVENTION</a></li>
+										  <li><a href="/interventions">ALL INTERVENTION</a></li>
+										</ul>
 									</li>
 									<% end %>
 									<% if user_signed_in? %> 
