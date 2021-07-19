@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'rails_helper'
+
 
 describe User, '.active' do
     it 'returns only active users' do

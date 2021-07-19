@@ -1,5 +1,5 @@
 require "json"
-
+require 'net/http'
 
 module ElevatorMedia 
 	class Streamer 
