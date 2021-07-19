@@ -1,16 +1,6 @@
 require 'elevator_media'
 
 
-RSpec.configure do |config|
-    config.before(:each) do
-      stub_request(:get, /v2.jokeapi.dev/).
-        with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
-        to_return(status: 200, body: "", headers: {})
-    end
-end
-
-
-
 describe ElevatorMedia::Streamer do
     describe "getContent" do
         context 'test return info' do
