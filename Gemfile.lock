@@ -352,6 +352,8 @@ GEM
       rubyzip (>= 1.2.2)
     sendgrid-ruby (6.4.0)
       ruby_http_client (~> 3.4)
+    shoulda-matchers (5.0.0)
+      activesupport (>= 5.2.0)
     slack-notifier (2.4.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
@@ -442,6 +444,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sendgrid-ruby
+  shoulda-matchers (~> 5.0)
   slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
