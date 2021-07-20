@@ -235,11 +235,11 @@
 					</div>
 					<div id="number-of-floors" class="text-center">
 						<label>Number of floors in the building, exluding basements?</label>
-						<input name="quotes[number_of_floor]" type="number" min="0" id="flo" step="1" onchange="CageCalc()">
+						<input name="quotes[number_of_floor]" type="number" min="0" id="flo" step="1" onchange="CageCalc()" required>
 					</div>
 					<div id="number-of-basements" class="text-center">
 						<label>Number of Basements contained in the building?</label>
-						<input name="quotes[number_of_basement]" type="number" min="0" id="bas" step="1" onchange="CageCalc()">
+						<input name="quotes[number_of_basement]" type="number" min="0" id="bas" step="1" onchange="CageCalc()" required>
 					</div>
 					<div id="number-of-companies" class="text-center">
 						<label>Number of distinct businesses?</label>
@@ -259,7 +259,7 @@
 					</div>
 					<div id="maximum-occupancy" class="text-center">
 						<label>Maximum number of occupants per floor?</label>
-						<input name="quotes[maximum_occupancy]" type="number" min="0" id="moc" step="1" onchange="CageCalc()">
+						<input name="quotes[maximum_occupancy]" type="number" min="0" id="moc" step="1" onchange="CageCalc()" required>
 					</div>
 					<div id="business-hours" class="text-center">
 						<label>Number of hours of activity in the building?</label>
