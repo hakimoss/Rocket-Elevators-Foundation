@@ -3,20 +3,24 @@ class LeadsController < ApplicationController
 
   # GET /leads or /leads.json
   def index
+    redirect_to index_url
     @leads = Lead.all
   end
 
   # GET /leads/1 or /leads/1.json
   def show
+    redirect_to index_url
   end
 
   # GET /leads/new
   def new
     @lead = Lead.new
+    redirect_to index_url
   end
 
   # GET /leads/1/edit
   def edit
+    redirect_to index_url
   end
 
   # POST /leads or /leads.json
