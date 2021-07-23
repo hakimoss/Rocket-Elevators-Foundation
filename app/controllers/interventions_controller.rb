@@ -4,6 +4,7 @@ class InterventionsController < ApplicationController
 
   # GET /interventions or /interventions.json
   def index
+    redirect_to index_url
     @interventions = Intervention.all
   end
 
@@ -17,26 +18,26 @@ class InterventionsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to (root_path + 'user/sign_in'), notice: "You need to be an Employee to access in this page" }
+        format.html { redirect_to (root_path + 'users/sign_in'), notice: "You need to be an Employee to access in this page" }
       end
     end
   end
 
  
-
-
-
   # GET /interventions/1 or /interventions/1.json
   def show
+    redirect_to index_url
   end
 
   # GET /interventions/new
   def new
+    redirect_to index_url
     @intervention = Intervention.new
   end
 
   # GET /interventions/1/edit
   def edit
+    redirect_to index_url
   end
 
   # POST /interventions or /interventions.json
