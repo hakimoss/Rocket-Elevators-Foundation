@@ -51,27 +51,27 @@ data_hash['addresses'].each do |address|
 end
 
 users_list = [
-    [ "nicolas.genest@codeboxx.biz", "123456", nil, nil, nil, DateTime.now, DateTime.now, 100, "Genest", "Nicolas", "CEO" ],
-    [ "nadya.fortier@codeboxx.biz", "2345678", nil, nil, nil, DateTime.now, DateTime.now, 101, "Nadya", "Fortier", "Director"],
-    [ "martin.chantal@codeboxx.biz", "345678", nil, nil, nil, DateTime.now, DateTime.now, 102, "Chantal", "Martin", "Assistant Director" ],
-    [ "mathieu.houde@codeboxx.biz", "456788", nil, nil, nil, DateTime.now, DateTime.now, 103, "Houde", "Mathieu", "Captain" ],
-    [ "patrick.thibault@codeboxx.biz", "564789", nil, nil, nil, DateTime.now, DateTime.now, 104, "Thibault", "Patrick", "Captain" ],
-    [ "david.boutin@codeboxx.biz", "664789", nil, nil, nil, DateTime.now, DateTime.now, 105, "Boutin", "David", "Engineer" ],
-    [ "mathieu.lortie@codeboxx.biz", "764789", nil, nil, nil, DateTime.now, DateTime.now, 106, "Lortie", "Mathieu", "Engineer" ],
-    [ "thomas.carrier@codeboxx.biz", "8564789", nil, nil, nil, DateTime.now, DateTime.now, 107, "Carrier", "Thomas", "Engineer" ],
-    [ "serge.savoie@codeboxx.biz", "964789", nil, nil, nil, DateTime.now, DateTime.now, 108, "Savoie", "Serge", "Engineer" ],
-    [ "francis.patry-jessop@codeboxx.biz", "574789", nil, nil, nil, DateTime.now, DateTime.now, 109, "Patry-Jessop", "Francis", "Engineer" ],
-    [ "mathieu.lefrancois@codeboxx.biz", "584789", nil, nil, nil, DateTime.now, DateTime.now, 110, "Lefrancois", "Mathieu", "Engineer" ],
-    [ "david.larochelle@codeboxx.biz", "594789", nil, nil, nil, DateTime.now, DateTime.now, 111, "Larochelle", "David", "Engineer" ],
-    [ "nicolas.pineault@codeboxx.biz", "565789", nil, nil, nil, DateTime.now, DateTime.now, 112, "Pineault", "Nicolas", "Engineer" ],
-    [ "david.amyot@codeboxx.biz", "564689", nil, nil, nil, DateTime.now, DateTime.now, 113, "Amyot", "David", "Engineer" ],
-    [ "remi.gagnon@codeboxx.biz", "564889", nil, nil, nil, DateTime.now, DateTime.now, 114, "Gagnon", "Remi", "Engineer" ],
-    [ "timothy.wever@codeboxx.biz", "569989", nil, nil, nil, DateTime.now, DateTime.now, 115, "Wever", "Timothy", "Developer" ],
-    [ "kiril.kleinerman@codeboxx.biz", "664789", nil, nil, nil, DateTime.now, DateTime.now, 116, "Kleinerman", "Kiril", "Developer" ],
-    [ "emmanuela.derilus@codeboxx.biz", "564799", nil, nil, nil, DateTime.now, DateTime.now, 117, "Derilus", "Emmanuela", "Developer" ],
-    [ "abdul.akeeb@codebozz.biz", "564289", nil, nil, nil, DateTime.now, DateTime.now, 118, "Akeeb", "Abdul", "Developer" ],
-    [ "krista.sheely@codeboxx.biz", "564989", nil, nil, nil, DateTime.now, DateTime.now, 119, "Sheely", "Krista", "Developer" ],
-    [ "jonathan.murray@codeboxx.biz", "564989", nil, nil, nil, DateTime.now, DateTime.now, 120, "Murray", "Jonathan", "Developer" ]
+    [ "nicolas.genest@codeboxx.biz", "x[e2w9gnJ[VFU&58", nil, nil, nil, DateTime.now, DateTime.now, 100, "Genest", "Nicolas", "CEO" ],
+    [ "nadya.fortier@codeboxx.biz", "W%s&q;4++B2YCaJP", nil, nil, nil, DateTime.now, DateTime.now, 101, "Nadya", "Fortier", "Director"],
+    [ "martin.chantal@codeboxx.biz", "{t4tg<{9zPTf==z=", nil, nil, nil, DateTime.now, DateTime.now, 102, "Chantal", "Martin", "Assistant Director" ],
+    [ "mathieu.houde@codeboxx.biz", "ra}8PF-g2T!:`#x`", nil, nil, nil, DateTime.now, DateTime.now, 103, "Houde", "Mathieu", "Captain" ],
+    [ "patrick.thibault@codeboxx.biz", "_YvUP2.w]^V=5!yK", nil, nil, nil, DateTime.now, DateTime.now, 104, "Thibault", "Patrick", "Captain" ],
+    [ "david.boutin@codeboxx.biz", "5W!)&>jk@4CTfBJu", nil, nil, nil, DateTime.now, DateTime.now, 105, "Boutin", "David", "Engineer" ],
+    [ "mathieu.lortie@codeboxx.biz", "puYJQKJAn/f*B6VY", nil, nil, nil, DateTime.now, DateTime.now, 106, "Lortie", "Mathieu", "Engineer" ],
+    [ "thomas.carrier@codeboxx.biz", "8y^j?^H.H3:Tn:nU", nil, nil, nil, DateTime.now, DateTime.now, 107, "Carrier", "Thomas", "Engineer" ],
+    [ "serge.savoie@codeboxx.biz", "R9Hc#c&hZL6,4_{k", nil, nil, nil, DateTime.now, DateTime.now, 108, "Savoie", "Serge", "Engineer" ],
+    [ "francis.patry-jessop@codeboxx.biz", "*#7Xx*yJ$,/uv2K-", nil, nil, nil, DateTime.now, DateTime.now, 109, "Patry-Jessop", "Francis", "Engineer" ],
+    [ "mathieu.lefrancois@codeboxx.biz", "W<+4/`:g7,>V-pa]", nil, nil, nil, DateTime.now, DateTime.now, 110, "Lefrancois", "Mathieu", "Engineer" ],
+    [ "david.larochelle@codeboxx.biz", "[(=g(h6QEM*HhB3w", nil, nil, nil, DateTime.now, DateTime.now, 111, "Larochelle", "David", "Engineer" ],
+    [ "nicolas.pineault@codeboxx.biz", "t[ctX7=pWVS:N8u:", nil, nil, nil, DateTime.now, DateTime.now, 112, "Pineault", "Nicolas", "Engineer" ],
+    [ "david.amyot@codeboxx.biz", "Wa8%2c#7MyxR_p@G", nil, nil, nil, DateTime.now, DateTime.now, 113, "Amyot", "David", "Engineer" ],
+    [ "remi.gagnon@codeboxx.biz", "B?'/E<s!=2L(;-qL", nil, nil, nil, DateTime.now, DateTime.now, 114, "Gagnon", "Remi", "Engineer" ],
+    [ "timothy.wever@codeboxx.biz", "mDN=&Zsf]H7M8\NQ", nil, nil, nil, DateTime.now, DateTime.now, 115, "Wever", "Timothy", "Developer" ],
+    [ "kiril.kleinerman@codeboxx.biz", "*:N2G}c=F[,k7D8w", nil, nil, nil, DateTime.now, DateTime.now, 116, "Kleinerman", "Kiril", "Developer" ],
+    [ "emmanuela.derilus@codeboxx.biz", "uWVPp6CbD@=km[K)", nil, nil, nil, DateTime.now, DateTime.now, 117, "Derilus", "Emmanuela", "Developer" ],
+    [ "abdul.akeeb@codebozz.biz", "p`+>B2G#2/T@^[a&", nil, nil, nil, DateTime.now, DateTime.now, 118, "Akeeb", "Abdul", "Developer" ],
+    [ "krista.sheely@codeboxx.biz", "m5Hh-PyMJR$`}~fQ", nil, nil, nil, DateTime.now, DateTime.now, 119, "Sheely", "Krista", "Developer" ],
+    [ "jonathan.murray@codeboxx.biz", "Muw7v}/8HwM,w2vT", nil, nil, nil, DateTime.now, DateTime.now, 120, "Murray", "Jonathan", "Developer" ]
 ]
 
 
